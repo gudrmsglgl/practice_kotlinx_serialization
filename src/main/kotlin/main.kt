@@ -9,19 +9,25 @@ fun main() {
         ignoreUnknownKeys = true
     }
 
-    println(encodePersonToJson(json))
-    println(decodeJsonToPerson(json))
+    encodePersonToJson(json)
+    println()
+    decodeJsonToPerson(json)
 }
 
 
-private fun encodePersonToJson(json: Json): String {
+private fun encodePersonToJson(json: Json) {
     val person = Person(
         name = "david"
     )
-    return json.encodeToString(person)
+    println("=======================Encode=======================")
+    println("person: $person")
+    println("Encode process")
+    println("json: ${json.encodeToString(person)}")
+    println("====================================================")
+
 }
 
-private fun decodeJsonToPerson(json: Json): Person {
+private fun decodeJsonToPerson(json: Json) {
     val jsonPerson = """
         {
             "name" : "david"
@@ -29,5 +35,10 @@ private fun decodeJsonToPerson(json: Json): Person {
             "address" : "incheon"
         }
     """
-    return json.decodeFromString(jsonPerson)
+    val person = json.decodeFromString<Person>(jsonPerson)
+    println("=======================Decode=======================")
+    println("json: $jsonPerson")
+    println("Decode process")
+    println("person: $person")
+    println("====================================================")
 }
