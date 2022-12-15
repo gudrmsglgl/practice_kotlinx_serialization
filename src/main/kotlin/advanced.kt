@@ -1,5 +1,6 @@
 import advanced.VT001
 import advanced.VT002
+import advanced.VT003
 import advanced.ViewType
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
@@ -31,7 +32,7 @@ fun main() {
             } 
         """
     }
-    expectJsonDecodeLog<VT002>(json) {
+    expectJsonDecodeLog<VT003>(json) {
         """
             {
                 "viewType" : "vt003",
